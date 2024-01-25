@@ -13,9 +13,11 @@
     {% if eventos %}
         {% for evento in eventos %}
             <li>
-                {{evento.titulo}} - {{evento.data_evento}} - {{evento.descricao}}
-                ( <a href="evento/?id={{evento.id}}">Editar / </a>
-                <a href="delete/{{evento.id}}">Excluir</a> )
+                <div style= {% if evento.get_evento_atrasado %} "color:red" {%endif%}>
+                    {{evento.titulo}} - {{evento.data_evento}} - {{evento.descricao}}
+                    ( <a href="evento/?id={{evento.id}}">Editar / </a>
+                    <a href="delete/{{evento.id}}">Excluir</a> )
+                </div>
             </li>
         {% endfor %}
     {% else %}
