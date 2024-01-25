@@ -1,16 +1,25 @@
 {% extends "model-page.html" %}
 {% block content %}
-    <h2>Agendamentos</h2>
-    <a href="evento">
-        <button type="button">Novo Evento</button>
-    </a>
+    <h2 align="center">Agendamentos</h2>
+    <div align="center">
+        <a href="evento">
+            <button type="button">Novo Evento</button>
+            <br>
+            <br>
+            <br>
+        </a>
+    </div>
     <ul>
-    {%if eventos %}
-        {%for evento in eventos%}
-            <li>{{evento.titulo}} - {{evento.data_evento}} - {{evento.descricao}}</li>
-        {%endfor%}
-    {%else%}
+    {% if eventos %}
+        {% for evento in eventos %}
+            <li>
+                {{evento.titulo}} - {{evento.data_evento}} - {{evento.descricao}}
+                ( <a href="evento/?id={{evento.id}}">Editar / </a>
+                <a href="delete/{{evento.id}}">Excluir</a> )
+            </li>
+        {% endfor %}
+    {% else %}
         <p>Você não possui evento ainda.</p>
-    {% endif%}
+    {% endif %}
     </ul>
 {% endblock %}
