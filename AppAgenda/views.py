@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from .models import Evento
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 # Create your views here.
@@ -24,8 +25,10 @@ def submit_login(request):
         if usuario is not None:
             login(request, usuario)
             return redirect('/')
-    else:
-        return redirect('/')
+        else:
+            messages.error(request, 'Usuario ou senha inválidos!')
+
+    return redirect('/')
 
 @login_required(login_url='/login/')
 def lista_evento(request):
