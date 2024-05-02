@@ -3,7 +3,7 @@ Calendário
 
   * Framework utilizada: Django
   
-  * Linguagem de programação utilizada para o back-end utilizadas: Python
+  * Linguagem de programação utilizada para o back-end: Python
 
   * Liguagem utilizada para front-end: Html
 
